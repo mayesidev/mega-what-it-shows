@@ -63,5 +63,7 @@ snapshot; interactive components on historical pages are not hydrated in this st
 
 The classifier assigns five reports to the parser group despite unusual descriptions.
 The review and parser issue retain those reports in the computed count and flag their
-individual diagnoses as provisional. Neither a shipped fix nor a current live-queue total
-is established by this snapshot. Decision 0002 awaits support-desk acceptance.
+individual diagnoses as provisional. The later course engineering update records the
+parser as fixed and the form-hint issue as won't fix because booking-v3 was retired.
+The review distinguishes that update from the original export and independent product
+verification. Decision 0002 awaits support-desk acceptance.

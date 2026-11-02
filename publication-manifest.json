@@ -4,7 +4,8 @@
   "githubActions": [
     "Create repository in the personal account authenticated in gh",
     "Push the reviewed source, evidence, rendered pages, and build files",
-    "Open the two issues in issues.json"
+    "Open the two issues in issues.json",
+    "Record engineering disposition and close parser as completed; close hint as not planned"
   ],
   "excluded": [
     "node_modules/",
@@ -20,8 +21,8 @@
     },
     {
       "path": "README.md",
-      "sha256": "de2c3e55e9efb9d72f201d7614d8b984fada88503eb08a6d1ae290b7651c7b3e",
-      "bytes": 2997
+      "sha256": "3b41283df8ade0888ea0b8c1ca54874761f402baa3e4c77667607411450411f3",
+      "bytes": 3144
     },
     {
       "path": "evidence/analysis.json",
@@ -29,9 +30,14 @@
       "bytes": 13927
     },
     {
+      "path": "evidence/engineering-update.json",
+      "sha256": "5868f863064eb20ee74499cff3fc0658e2b160708000720963efc1911bcd67b5",
+      "bytes": 462
+    },
+    {
       "path": "evidence/summary.html",
-      "sha256": "a84b1ae62bb3c143b3f479423339d8b2642747de3139d915633a9275423f614d",
-      "bytes": 2035
+      "sha256": "ef548a52b7b631df17b7b70789dd2d668db0c47f36c3dc7627938b169fe4b550",
+      "bytes": 2111
     },
     {
       "path": "issue-drafts/hint.txt",
@@ -75,13 +81,13 @@
     },
     {
       "path": "rendered/kb/incidents/4471-review/index.html",
-      "sha256": "135b59afb755c1ab82cd47f5ad7886e6ad41c36eb9970fafdf32660a8ce499ea",
-      "bytes": 15128
+      "sha256": "65c5872de7ec04236348b894f74852555747fad9b74b4c05858287b8a05dd89d",
+      "bytes": 16201
     },
     {
       "path": "rendered/kb/index.html",
-      "sha256": "6a9c7dda63c8913af7b9a2bcdb67e4b4836588468795348640aa37c1dbb47bea",
-      "bytes": 3932
+      "sha256": "e6ea16b117dedd74285055d13c8096f795e567a91ff81f0ac6e4b877daec3b65",
+      "bytes": 3928
     },
     {
       "path": "rendered/kb/triage/dedupe/index.html",
@@ -90,8 +96,8 @@
     },
     {
       "path": "scripts/analyze.mjs",
-      "sha256": "629b44e55d0dd3c120c191079eaf8ca281446ae1f248f6ddd5c76b5b98c585ba",
-      "bytes": 3941
+      "sha256": "2772a5c4de4972ef87b08a01a760dfbe6715c4c1c260d00774c4300afe0e9796",
+      "bytes": 4017
     },
     {
       "path": "scripts/check.mjs",
@@ -250,8 +256,8 @@
     },
     {
       "path": "src/routes/kb/incidents/4471-review/+page.svx",
-      "sha256": "4b5874c7c744197a7737f55c7f688416c94e09d21f979994a062f1af0b542fc4",
-      "bytes": 3938
+      "sha256": "dffb8745cdacd691040cd3b5eb2bf72580fe58602a8d445810efba33fe7ebb11",
+      "bytes": 4850
     },
     {
       "path": "src/routes/kb/triage/dedupe/+page.svx",

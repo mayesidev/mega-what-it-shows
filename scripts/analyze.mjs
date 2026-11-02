@@ -49,6 +49,6 @@ body { margin: 0; } h2 { font-size: 20px; margin: 0 0 8px; } p { line-height: 1.
 <p>4 October export · ${reports.length} unique report IDs · repeated export rows excluded</p>
 <div class="chart" role="img" aria-label="379 reports assigned to shared parser; 33 to booking-v3 hint. Five parser assignments require further investigation.">${bars}</div>
 <p class="note">Five reports remain provisionally assigned to the parser group. Their descriptions require further investigation; these bars show the supplied classifier's assignments, not independently verified diagnoses of every report.</p>
-<p>The signed KB review uses the export's actual Svelte cause table and queue chart. Public GitHub publication awaits approval.</p>
+<p>The signed KB review uses the export's actual Svelte cause table and queue chart. A later engineering update records the parser as fixed and the hint issue as won't fix because booking-v3 was retired.</p>
 </body></html>\n`);
 console.log(`Verified ${reports.length} unique reports; ${rows.length - reports.length} repeated export rows.`);

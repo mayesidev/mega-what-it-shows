@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 review · two date failures hidden by one ticket'
 owner: Codex with Isaac
-status: investigated
+status: resolved
 reviewed: '2026-11-02'
 signature: 'Codex with Isaac | MEGA what it shows | 2026-11-02'
 ---
@@ -23,7 +23,21 @@ data and tenant directory. It describes this snapshot, not the desk's current qu
 
 <CauseTable ticket={4471} />
 
-## Separate the fixes
+## Engineering disposition · 5 October
+
+The [course engineering update](https://hq.mega.dev/challenges/what-it-shows), published
+after the first submission, marks #4471 closed on 5 October. It records separate outcomes:
+
+- Parser: **fixed**, `fix(dates): parse dd/mm for eu locales`. [Ticket 1](https://github.com/mayesidev/mega-what-it-shows/issues/1)
+  is closed as completed.
+- Hint: **won't fix**, `booking-v3 form retired`. [Ticket 2](https://github.com/mayesidev/mega-what-it-shows/issues/2)
+  is closed as not planned. Retirement is not evidence that the hint was corrected.
+
+These outcomes come from the desk's engineering update. This repository records the
+investigation and disposition; it does not contain or independently verify that product fix.
+The original export and computed report assignments below remain a historical snapshot.
+
+## Failure paths and verification
 
 The shared parser reads dates month first even for tenants whose locale writes the day
 first. An intended 7 April can become 4 July. This is the majority cause in #4471, seen
@@ -43,8 +57,8 @@ JSON files; the complete report membership is in `evidence/analysis.json`.
 <Callout>
 Two confirmed failure paths need separate engineering tickets and separate verification.
 The old page's “one issue, one fix queued” conclusion does not follow from its own table.
-These are investigations and proposed fixes; this review does not establish that either
-fix has shipped or passed verification.
+The engineering update above supplies the final disposition. The checks below describe
+what would verify the reported behavior; this review does not claim to have run product tests.
 </Callout>
 
 ## Reports that still need a closer look
