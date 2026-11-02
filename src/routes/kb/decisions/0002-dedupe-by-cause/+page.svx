@@ -4,7 +4,7 @@ title: '0002 · Deduplicate by verified failure path'
 owner: Codex with Isaac
 status: proposed
 reviewed: '2026-11-02'
-signature: 'Codex with Isaac | MEGA what it shows | 2026-11-02'
+signature: 'v1.eyJzdWIiOiIyNTM5IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpYXQiOjE3OTM1OTcwODYsImV4cCI6MTc5MzY4MzQ4Nn0.Blfn9FuNUC0FwNO9eKNvA31KOFPxzVEBMfw1rOxHWR8'
 ---
 
 <script>

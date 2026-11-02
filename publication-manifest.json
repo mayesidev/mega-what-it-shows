@@ -71,7 +71,7 @@
     },
     {
       "path": "rendered/kb/decisions/0002-dedupe-by-cause/index.html",
-      "sha256": "bc29622e57e747b63833f5ebacf2e9507e3a887bae2642e8b1eb2f003f441a2e",
+      "sha256": "5caa62faace050266bc4f8ff445d4ac8a1bbb01e5d01655711d7a7377748f8ee",
       "bytes": 3991
     },
     {
@@ -81,7 +81,7 @@
     },
     {
       "path": "rendered/kb/incidents/4471-review/index.html",
-      "sha256": "65c5872de7ec04236348b894f74852555747fad9b74b4c05858287b8a05dd89d",
+      "sha256": "c4afd88b08290758f445221536b9e024b7dff45720d033c519b8d91ff4486a5c",
       "bytes": 16201
     },
     {
@@ -246,8 +246,8 @@
     },
     {
       "path": "src/routes/kb/decisions/0002-dedupe-by-cause/+page.svx",
-      "sha256": "c3385ce090d7a71202a0f1bcf02331a316b91d9b162fa1fed033352eadc6fdf6",
-      "bytes": 1560
+      "sha256": "7b1e387aa2436a1d43331f975bec1687463e4bb9c9cda94bc6f47ddb7c3da513",
+      "bytes": 1664
     },
     {
       "path": "src/routes/kb/incidents/4471/+page.svx",
@@ -256,8 +256,8 @@
     },
     {
       "path": "src/routes/kb/incidents/4471-review/+page.svx",
-      "sha256": "dffb8745cdacd691040cd3b5eb2bf72580fe58602a8d445810efba33fe7ebb11",
-      "bytes": 4850
+      "sha256": "97f64b79d6b0cf386411be08d27c0c92077c767ed66f06e7b4af7bdb33a7047d",
+      "bytes": 4954
     },
     {
       "path": "src/routes/kb/triage/dedupe/+page.svx",
