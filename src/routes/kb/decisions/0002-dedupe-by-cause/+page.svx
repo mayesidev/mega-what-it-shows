@@ -1,0 +1,38 @@
+---
+layout: runbook
+title: '0002 · Deduplicate by verified failure path'
+owner: Codex with Isaac
+status: proposed
+reviewed: '2026-11-02'
+signature: 'Codex with Isaac | MEGA what it shows | 2026-11-02'
+---
+
+<script>
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Context
+
+The rendered cause table for #4471 contradicts its written “one issue” conclusion.
+The same subject can describe a shared-parser failure or a booking-v3 hint failure.
+Browser metadata and intake tags can also disagree with tenant settings.
+
+## Proposed decision
+
+Replace [decision 0001](/kb/decisions/0001-dedupe-by-subject) when the support desk accepts
+this proposal. Keep that accepted record unchanged. Match reports by verified cause and
+affected path, using tenant locale, form version, and channel. A matching subject is a
+search aid, not proof of duplication. A missing tenant or contradictory evidence requires
+investigation; it does not justify a merge.
+
+Keep stable report IDs and source links. Deduplicate repeated export rows by ID, while
+retaining distinct reports with identical wording. Keep received time separate from merge
+time. Record who reviewed the evidence and revisit unresolved reports before closing a ticket.
+
+## Consequences
+
+Triage requires reading and tenant lookup. Engineering receives separate, reproducible
+failure paths and traceable counts. Existing #4471 merges need review; this proposal does
+not claim the live desk has adopted the rule. See the [incident review](/kb/incidents/4471-review).
+
+<RenderStamp {signature} />

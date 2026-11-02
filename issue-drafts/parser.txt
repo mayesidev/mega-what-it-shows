@@ -1,0 +1,32 @@
+Shared date parser interprets day-first tenant dates as month-first (379 reports)
+
+## Scope
+
+**379 unique reports** merged into support ticket #4471, from the 4 October 2026 course export. This is a snapshot count, not a live support total.
+
+## Failure path
+
+The shared parser interprets dates month first for tenants whose configured locale is day first. A booking intended for 7 April can become 4 July. This group covers app and email reports plus booking-v2 form reports; booking-v3 form-hint failures are tracked separately.
+
+## Evidence
+
+- Received: 2026-04-01 through 2026-10-04.
+- Affected tenants in this export: 11.
+- Source: `src/lib/data/reports-4471.json`; tenant configuration: `src/lib/data/tenants/`; classification: `src/lib/kb/causes.ts` and `locales.ts`.
+- Reproduce counts with `npm ci --ignore-scripts` then `npm run build && npm run check`.
+- Full membership and examples: `evidence/analysis.json`, group `parser`.
+- KB source: `src/routes/kb/incidents/4471-review/+page.svx`; rendered page: `rendered/kb/incidents/4471-review/index.html`.
+
+The export has 427 rows but 412 unique report IDs; overlapping pages repeat 15 rows. Count IDs once and classify by tenant locale, form version, and channel, not subject or browser intake tag. The two groups are disjoint and cover those 412 IDs.
+
+## Fix and acceptance evidence
+
+Correct date interpretation at the shared parser boundary, using the tenant locale. Verify 07/04/2026 resolves to 7 April for a day-first tenant, an unambiguous day greater than 12 is handled correctly, and month-first tenants retain their intended behavior. Verify app, email, and booking-v2 paths independently.
+
+## Limits and follow-up
+
+Five reports (R-41202, R-41209, R-41236, R-41344, R-41620) remain in this computed group but need investigation. They describe one-day differences, June-only behavior, an invite arriving before a booking, or different dates across cities. Tenant/channel classification is not proof of those individual root causes. Obtain entered values, intended dates, stored timestamps, timezones, and generated invites; split only when evidence supports another failure. Do not count these reports twice.
+
+This issue records an investigated failure and proposed verification. It does not claim a shipped fix. Subject-only deduplication is addressed by proposed decision 0002; accepted decision 0001 remains unchanged. The course's support desk continues working, so reconcile new reports before closing.
+
+Course context: https://hq.mega.dev/challenges/what-it-shows

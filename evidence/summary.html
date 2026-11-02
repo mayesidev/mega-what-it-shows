@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ticket 4471: computed report assignments</title><style>
+:root { color-scheme: light dark; font-family: var(--font-sans, system-ui); color: var(--foreground, #dedede); }
+body { margin: 0; } h2 { font-size: 20px; margin: 0 0 8px; } p { line-height: 1.5; color: var(--muted-foreground, #a3a3a3); }
+.chart { height: 164px; margin: 22px 0; } .row { margin: 0 0 24px; } .label { display: flex; justify-content: space-between; margin-bottom: 8px; }
+.track { height: 24px; background: var(--secondary, #262626); border-radius: var(--radius, 6px); overflow: hidden; }
+.bar { height: 24px; background: var(--chart-1, #69b1a0); } .hint { background: var(--chart-2, #d89e68); }
+.note { border-left: 3px solid var(--warning, #d89e68); padding: 8px 16px; background: var(--warning-surface, #28231c); border-radius: var(--radius, 6px); }
+</style></head><body>
+<h2>Ticket #4471 · computed report assignments</h2>
+<p>4 October export · 412 unique report IDs · repeated export rows excluded</p>
+<div class="chart" role="img" aria-label="379 reports assigned to shared parser; 33 to booking-v3 hint. Five parser assignments require further investigation."><div class="row"><div class="label"><span>Shared parser</span><strong>379</strong></div><div class="track"><div class="bar parser" style="width:91.99029126213593%"></div></div></div><div class="row"><div class="label"><span>booking-v3 hint</span><strong>33</strong></div><div class="track"><div class="bar hint" style="width:8.009708737864079%"></div></div></div></div>
+<p class="note">Five reports remain provisionally assigned to the parser group. Their descriptions require further investigation; these bars show the supplied classifier's assignments, not independently verified diagnoses of every report.</p>
+<p>The signed KB review uses the export's actual Svelte cause table and queue chart. Public GitHub publication awaits approval.</p>
+</body></html>

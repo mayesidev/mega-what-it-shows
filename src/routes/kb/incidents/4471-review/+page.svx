@@ -1,0 +1,80 @@
+---
+layout: runbook
+title: '#4471 review · two date failures hidden by one ticket'
+owner: Codex with Isaac
+status: investigated
+reviewed: '2026-11-02'
+signature: 'Codex with Isaac | MEGA what it shows | 2026-11-02'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+## Scope and evidence
+
+This review uses the 4 October 2026 export of ticket #4471. Its overlapping export pages
+contain repeated report IDs. Count each ID once; identical wording with different IDs
+still represents separate reports. The table below computes its counts from the supplied
+data and tenant directory. It describes this snapshot, not the desk's current queue.
+
+<CauseTable ticket={4471} />
+
+## Separate the fixes
+
+The shared parser reads dates month first even for tenants whose locale writes the day
+first. An intended 7 April can become 4 July. This is the majority cause in #4471, seen
+through app, email, and booking-v2 forms. Fix date interpretation at the parser boundary
+using the tenant's locale, with tests for ambiguous and unambiguous dates.
+
+A separate booking-v3 form prints `MM/DD/YYYY` to day-first tenants, while interpreting
+their input in the tenant's day-first order. Users following that hint can create a
+different date from the one intended. Correct the hint and align its examples and validation
+with the form's parser. A shared-parser fix alone does not establish that this is fixed.
+
+Use tenant locale, booking-form version, and report channel to determine these groups.
+Browser locale and intake tags are guesses, not the tenant's settings. Some intake tags
+disagree with the computed cause. Source: `src/lib/kb/causes.ts`, `locales.ts`, and tenant
+JSON files; the complete report membership is in `evidence/analysis.json`.
+
+<Callout>
+Two confirmed failure paths need separate engineering tickets and separate verification.
+The old page's “one issue, one fix queued” conclusion does not follow from its own table.
+These are investigations and proposed fixes; this review does not establish that either
+fix has shipped or passed verification.
+</Callout>
+
+## Reports that still need a closer look
+
+The desk notes identify R-41202, R-41209, R-41236, R-41344, and R-41620 as one-day-move
+reports. The supplied classifier places all five in the parser group by tenant and channel;
+the table footnotes that classification. Their descriptions include a one-day difference,
+a June-only problem, an invite preceding a booking, and different dates in Lisbon and
+Toronto. Those observations do not prove a month/day swap or a single additional cause.
+
+Keep these five inside the computed totals, flag their cause as provisional, and obtain
+the original entered value, stored timestamp, intended date, timezone, and generated invite
+before confirming or splitting them. Do not add a timezone bug as an established diagnosis
+or count those five twice. The two tickets account for the entire exported set under the
+supplied classification, with this limitation explicit.
+
+## What the queue shows
+
+<QueueTimeline ticket={4471} />
+
+Reception and merge timestamps describe different events. Early reports waited until a
+later merge batch; a merge spike is not the onset of a new incident or evidence of a fix.
+Reports continued after that batch. Reconcile new arrivals before declaring the live queue
+fully covered; this export ends on 4 October.
+
+## Change the triage rule
+
+[Decision 0002](/kb/decisions/0002-dedupe-by-cause) proposes replacing subject-only deduplication.
+The same subject can conceal different failure paths, while different subjects can describe
+the same path. Confirm the cause using tenant settings and channel; leave uncertain reports
+unmerged pending investigation. Preserve decision 0001 as history.
+
+<RenderStamp {signature} />
